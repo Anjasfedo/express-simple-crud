@@ -66,6 +66,22 @@ app.put("/api/products/:id", async (req, res) => {
   }
 });
 
+app.delete("/api/products/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const product = await Product.findByIdAndDelete(id);
+
+    if (!product) {
+      return res.status(404).json({ message: "Not found" });
+    }
+
+    res.status(200).json({ message: "Deleted" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 app.listen(3000, () => {
   console.log("Run on http://localhost:3000/");
 });
