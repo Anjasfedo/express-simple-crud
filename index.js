@@ -28,5 +28,5 @@ app.post("/products", async (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log("Run on port 3000");
+  console.log("Run on http://localhost:3000/");
 });
