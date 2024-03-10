@@ -5,6 +5,7 @@ const Product = require("./models/product.model");
 require("dotenv").config();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 const MONGODB_URL = process.env.MONGODB_URL;
 
